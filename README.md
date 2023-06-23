@@ -1,2 +1,3 @@
 # Aspas-informatica
- Projeto/trabalho desenvolvido para a faculdade, matéria: Linguagem de programação
+ Projeto/trabalho desenvolvido para a faculdade
+ Matéria: Linguagem de programação
