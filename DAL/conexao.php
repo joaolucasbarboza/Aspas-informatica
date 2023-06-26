@@ -15,7 +15,7 @@ class Conexao {
     public static function conectar() {
         if (self::$cont == null) {
             try {
-                self::$cont = new \PDO("mysql:host".self::$dbHost.";dbName=".self::$dbName, self::$dbUser, self::$dbPassword);
+                self::$cont = new \PDO("mysql:host=". self::$dbHost .";dbname=". self::$dbName, self::$dbUser, self::$dbPassword);
             }
             catch (\PDOException $exeption) {
                 die($exeption->getMessage());
