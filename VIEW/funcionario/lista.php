@@ -1,10 +1,10 @@
 <?php
 include_once '/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/BLL/funcionario.php';
+include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/menu.php";
 $bll = new \bll\bllFuncionario();
 
 $lista_funcionario = $bll->Select();
 
-include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/menu.php";
 ?>
 <title>Lista de funcionario</title>
 
@@ -14,7 +14,7 @@ include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/As
         <div class="flex justify-between items-center text-start gap-8 m-10 w-full ">
             <h1 class="text-white text-xl font-bold">Lista de funcionarios</h1>
             <div class="flex justify-center items-center gap-2 bg-green-500 py-2 px-4 rounded-lg text-[14px] cursor-pointer">
-                <button class="uppercase text-white">Adicionar funcionario</button>
+                <button onclick="JavaScript:location.href='inserir.php'" class="uppercase text-white">Adicionar funcionario</button>
                 <span class="material-symbols-outlined text-white">add</span>
             </div>
         </div>
@@ -59,13 +59,18 @@ include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/As
                             <?php echo "R$" . number_format($funcionario->getSalario(), 2, ",", "."); ?>
                         </td>
                         <td class="px-6 py-4 gap-8">
-                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Detalhes</a>
+                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" onclick="JavaScript:location.href='detalhes.php?id=' + <?php echo $funcionario->getId(); ?>">
+                                Detalhes</a>
                         </td>
                         <td class="px-6 py-4 gap-8">
-                            <a href="#" class="font-medium text-orange-600 dark:text-blue-500 hover:underline">Editar</a>
+                            <a href="#" class="font-medium text-orange-600 dark:text-blue-500 hover:underline" onclick="JavaScript:location.href='editar.php?id=' + <?php echo $funcionario->getId(); ?>">
+                                Editar
+                            </a>
                         </td>
                         <td class="px-6 py-4 gap-8">
-                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Remover</a>
+                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" onclick="JavaScript: remover(<?php echo $funcionario->getId(); ?>);">
+                                Remover
+                            </a>
                         </td>
                     </tr>
                 <?php
@@ -74,6 +79,15 @@ include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/As
             </tbody>
         </table>
     </div>
+
+    <script>
+        function remover(id) {
+            if (confirm('Excluir o Operador ' + id + '?')) {
+                location.href = 'deletar.php?id=' + id;
+            }
+        }
+    </script>
+
 </body>
 
 </html>
