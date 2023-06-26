@@ -23,13 +23,15 @@
 
         public function Insert (\MODEL\Funcionario $funcionario) 
         {
-            var_dump("teste4");
             // echo "Nome: {$operador->getNome()} </br>"; 
             // echo "Aniversario: {$operador->getAniversario()} </br>"; 
             // echo "Salario: {$operador->getSalario()} </br>"; 
+            
             $dal = new \DAL\dalFuncionario();
+            
 
             $dal->Insert($funcionario);
+            var_dump("inserir");
         }
 
         public function Update (\MODEL\Funcionario $funcionario)
@@ -41,7 +43,6 @@
 
  
             $dal->Update($funcionario);
-            var_dump('oi');
            
          }
     }

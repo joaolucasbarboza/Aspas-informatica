@@ -15,7 +15,6 @@ class dalFuncionario
         $sql = "select * from funcionario;";
         
         $result = $con->query($sql);
-        var_dump('dal');
         
         
         $con = Conexao::desconectar();
@@ -57,7 +56,7 @@ class dalFuncionario
     public function Insert(\MODEL\Funcionario $funcionario)
     {
         $con = Conexao::conectar();
-        $sql = "INSERT INTO operador (nome, aniversario, salario) VALUES ('{$funcionario->getNome()}', '{$funcionario->getAniversario()}', {$funcionario->getSalario()});";
+        $sql = "INSERT INTO funcionario (nome, aniversario, salario) VALUES ('{$funcionario->getNome()}', '{$funcionario->getAniversario()}', {$funcionario->getSalario()});";
         $result = $con->query($sql);
         $con = Conexao::desconectar();
         return $result;
@@ -65,13 +64,12 @@ class dalFuncionario
 
     public function Update(\MODEL\Funcionario $funcionario)
     {
-        $sql = "UPDATE operador SET nome=?, aniversario=?, salario=? WHERE id=?";
+        $sql = "UPDATE funcionario SET nome=?, aniversario=?, salario=? WHERE id=?";
         
         $pdo = Conexao::conectar();
         $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         
         $query = $pdo->prepare($sql);
-        var_dump('teste');
         $result = $query->execute(array($funcionario->getNome(), $funcionario->getAniversario(), $funcionario->getSalario(), $funcionario->getId()));
 
         $con = Conexao::desconectar();
