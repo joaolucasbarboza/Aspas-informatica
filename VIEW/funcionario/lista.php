@@ -15,6 +15,7 @@ var_dump('oi');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Lista de funcionarios</title>
 
 
@@ -22,50 +23,70 @@ var_dump('oi');
 
 <body>
 
-    <h1>Lista de funcionarios</h1>
-
-    <div class="">
-        <button>
-            <a href="">Adicionar funcionario</a>
-        </button>
-    </div>
-    <table class="table-fixed">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>NOME</th>
-                <th>ANIVERSARIO</th>
-                <th>SALÁRIO</th>
-            </tr>
-        </thead>
-        <tbody>
-
-            <?php
-            foreach ($lista_funcionario as $funcionario) {
-            ?>
+    <div class="w-[900px] flex flex-col m-auto mt-24 justify-center items-center rounded-lg">
+        <div class="flex text-start gap-8">
+            <h1 class="text-xl ">Lista de funcionarios</h1>
+            <div class="flex justify-center items-center">
+                <button class="uppercase">Adicionar funcionario</button>
+                <span class="material-symbols-outlined">add</span>
+            </div>
+        </div>
+        <table class="w-[900px]  text-sm text-left text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <td><?php echo $funcionario->getId(); ?></td>
-                    <td><?php echo $funcionario->getNome(); ?></td>
-                    <td><?php echo $funcionario->getAniversario(); ?></td>
-                    <td><?php echo "R$" . number_format($funcionario->getSalario(), 2, ",", "."); ?></td>
-                    <td>
-                        <a class="cursor-pointer" onclick="JavaScript:location.href='?id=' +
-                            <?php echo $funcionario->getId(); ?>">
-                            Editar
-                        </a>
-                    </td>
-                    <td>
-                        <a class="cursor-pointer" onclick="JavaScript:location.href='?id=' +
-                            <?php echo $funcionario->getId(); ?>">
-                            Detalhes
-                        </a>
-                    </td>
+                    <th scope="col" class="px-6 py-3">
+                        ID
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Nome
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Aniversario
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Salário
+                    </th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+
                 </tr>
-            <?php
-            }
-            ?>
-        </tbody>
-    </table>
+            </thead>
+
+            <tbody>
+
+                <?php
+                foreach ($lista_funcionario as $funcionario) {
+                ?>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <?php echo $funcionario->getId(); ?>
+                        </td>
+                        <th class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <?php echo $funcionario->getNome(); ?>
+                        </th>
+                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <?php echo $funcionario->getAniversario(); ?>
+                        </td>
+                        <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            <?php echo "R$" . number_format($funcionario->getSalario(), 2, ",", "."); ?>
+                        </td>
+                        <td class="px-6 py-4  gap-8">
+                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Detalhes</a>
+                        </td>
+                        <td class="px-6 py-4  gap-8">
+                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
+                        </td>
+                        <td class="px-6 py-4  gap-8">
+                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Remover</a>
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>
