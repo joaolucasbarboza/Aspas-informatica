@@ -68,7 +68,7 @@ class dalCliente
 
     public function Update(\MODEL\Cliente $cliente)
     {
-        $sql = "UPDATE cl$cliente SET nome=?, aniversario=?, cpf=?, telefone=? WHERE id=?";
+        $sql = "UPDATE cliente SET nome=?, aniversario=?, cpf=?, telefone=? WHERE id=?";
         
         $pdo = Conexao::conectar();
         $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
