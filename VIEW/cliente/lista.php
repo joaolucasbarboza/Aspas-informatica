@@ -3,7 +3,6 @@ include_once '/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/As
 
 $bll = new \bll\bllCliente();
 $lista_cliente = $bll->Select();
-var_dump("ooi");
 
 ?>
 <title>Lista de cliente</title>
