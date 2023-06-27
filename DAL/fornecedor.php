@@ -56,7 +56,8 @@ class dalFornecedor
     public function Insert(\MODEL\Fornecedor $fornecedor)
     {
         $con = Conexao::conectar();
-        $sql = "INSERT INTO fornecedor (razao_social, cnpj, email) VALUES ('{$fornecedor->getRazaoSocial()}', '{$fornecedor->getCnpj()}', {$fornecedor->getEmail()});";
+        
+        $sql = "INSERT INTO fornecedor (razao_social, cnpj, email) VALUES ('{$fornecedor->getRazaoSocial()}', '{$fornecedor->getCnpj()}', '{$fornecedor->getEmail()}');";
         $result = $con->query($sql);
         $con = Conexao::desconectar();
         return $result;

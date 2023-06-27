@@ -1,5 +1,4 @@
 <?php 
-
     include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/MODEL/funcionario.php";
     include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/BLL/funcionario.php";
 
@@ -14,8 +13,9 @@
     
 
     $bll->Insert($funcionario);
-    var_dump("inserir");
+    var_dump($bll);
+    var_dump($funcionario);
 
-    header("location: lista.php")
+    // header("location: lista.php")
 
 ?>
