@@ -7,6 +7,7 @@ class Cliente {
     private ?string $nome;
     private ?string $aniversario;
     private ?string $cpf;
+    private ?string $telefone;
 
     public function __construct() {
 
@@ -28,6 +29,10 @@ class Cliente {
         return $this->cpf;
     }
 
+    public function getTelefone() {
+        return $this->telefone;
+    }
+
     public function setId(int $id) {
         return $this->id = $id;
     }
@@ -42,6 +47,10 @@ class Cliente {
 
     public function setCpf(string $cpf) {
         return $this->cpf = $cpf;
+    }
+
+    public function setTelefone(string $telefone) {
+        return $this->telefone = $telefone;
     }
 
 }
