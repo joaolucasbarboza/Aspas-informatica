@@ -60,7 +60,7 @@ class dalCliente
     {
         $con = Conexao::conectar();
         
-        $sql = "INSERT INTO fornecedor (razao_social, cnpj, email) VALUES ('{$cliente->getNome()}', '{$cliente->getAniversario()}', '{$cliente->getCpf()}', '{$cliente->getTelefone()}');";
+        $sql = "INSERT INTO cliente (nome, aniversario, cpf, telefone) VALUES ('{$cliente->getNome()}', '{$cliente->getAniversario()}', '{$cliente->getCpf()}', '{$cliente->getTelefone()}');";
         $result = $con->query($sql);
         $con = Conexao::desconectar();
         return $result;
