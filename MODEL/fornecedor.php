@@ -36,6 +36,10 @@ class Fornecedor {
      return $this->razaoSocial = $razaoSocial;   
     }
 
+    public function setCnpj(string $cnpj) {
+        return $this->cnpj = $cnpj;
+    }
+
     public function setEmail(string $email) {
         return $this->email = $email;
     }
