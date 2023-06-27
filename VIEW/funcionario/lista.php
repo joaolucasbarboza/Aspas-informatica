@@ -1,6 +1,6 @@
 <?php
 include_once '/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/BLL/funcionario.php';
-include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/menu.php";
+
 $bll = new \bll\bllFuncionario();
 
 $lista_funcionario = $bll->Select();
@@ -9,7 +9,7 @@ $lista_funcionario = $bll->Select();
 <title>Lista de funcionario</title>
 
 <body class="bg-black">
-
+    <?php include_once include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/menu.php";?>
     <div class="w-[900px] flex flex-col m-auto mt-8 justify-center items-center rounded-lg">
         <div class="flex justify-between items-center text-start gap-8 m-10 w-full ">
             <h1 class="text-white text-xl font-bold">Lista de funcionarios</h1>

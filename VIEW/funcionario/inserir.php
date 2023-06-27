@@ -1,9 +1,9 @@
-<?php 
-include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/menu.php";
-?>
+
 
 <body class="bg-black">
-    
+    <?php 
+        include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/menu.php";
+    ?>
     <div class="flex flex-col justify-center items-center pt-16 ">
         
         <div class="flex flex-col justify-center dark:bg-gray-800 items-center border-2 border-gray-900 border- rounded-[10px] p-4 bg-white ">

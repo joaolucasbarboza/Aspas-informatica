@@ -1,6 +1,5 @@
 <?php
     include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/BLL/funcionario.php";
-    include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/menu.php";
     $id = $_GET['id'];
     
     $bll = new \BLL\bllFuncionario();
@@ -12,6 +11,9 @@
 ?>
 
 <body class="bg-black">
+<?php 
+    include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/menu.php";
+?>
 <div class="flex flex-col justify-center items-center pt-14">
 
 <div class="flex flex-col justify-center dark:bg-gray-800 items-center border-2 border-gray-900 rounded-[10px] p-4 bg-white">
