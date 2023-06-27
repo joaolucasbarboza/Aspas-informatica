@@ -9,7 +9,7 @@ $lista_fornecedor = $bll->Select();
 <title>Lista de fornecedor</title>
 
 <body class="bg-black">
-    <?php include_once include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/menu.php";?>
+    <?php include_once include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/menu.php"; ?>
     <div class="w-[900px] flex flex-col m-auto mt-8 justify-center items-center rounded-lg">
         <div class="flex justify-between items-center text-start gap-8 m-10 w-full ">
             <h1 class="text-white text-xl font-bold">Lista de fornecedor</h1>
@@ -74,21 +74,21 @@ $lista_fornecedor = $bll->Select();
                             </a>
                         </td>
                     </tr>
+
                 <?php
                 }
                 ?>
             </tbody>
         </table>
     </div>
-
     <script>
+        const razao_social = "<?php echo $fornecedor->getRazaoSocial(); ?>"
         function remover(id) {
-            if (confirm('Excluir o Operador ' + id + '?')) {
+            if (confirm('Excluir o fornecedor ' + razao_social + '?')) {
                 location.href = 'deletar.php?id=' + id;
             }
         }
     </script>
-
 </body>
 
 </html>
