@@ -37,7 +37,7 @@ class Cliente {
         return $this->id = $id;
     }
 
-    public function setNome(int $nome) {
+    public function setNome(string $nome) {
         return $this->nome = $nome;
     }
 

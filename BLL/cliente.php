@@ -8,11 +8,11 @@ class bllCliente
 {
     public function Select()
     {
-
         $dal = new \DAL\dalCliente();
-
-
+        
+        
         return $dal->Select();
+        var_dump("bll");
     }
 
     public function SelectID(int $id)
