@@ -10,14 +10,13 @@ echo "Busca: " . $busca . "</br>";
 $bll = new \bll\bllProduto();
 
 if ($busca == null)
-    $lista_funcionario = $bll->Select();
-else $lista_funcionario = $bll->SelectNome($busca);
+$lista_produto = $bll->Select();
+else $lista_produto = $bll->SelectNome($busca);
 
 session_start();
 if (!isset($_SESSION['login'])) {
     Header("location: index.php");
 }
-
 ?>
 
 <body class="dark:bg-gray-900">
@@ -28,8 +27,8 @@ if (!isset($_SESSION['login'])) {
                 <div class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded-lg overflow-hidden">
                     <div class="flex md:flex-row items-center justify-between space-y-3 md:space-y-0 md:space-x-4 p-4">
                         <div class="flex w-full md:w-full gap-4">
-                        <h1 class="flex justify-center items-center text-white text-xl font-bold">Lista de funcionarios</h1>
-                        <form action="../funcionario/lista.php" method="GET" class=" m-auto justify-center items-center">
+                        <h1 class="flex justify-center items-center text-white text-xl font-bold">Lista de produtos</h1>
+                        <form action="../produto/lista.php" method="GET" class=" m-auto justify-center items-center">
                               
                                 <label for="simple-search" class="sr-only">Search</label>
                                 <div class="relative w-full">
@@ -47,7 +46,7 @@ if (!isset($_SESSION['login'])) {
                                 <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                                     <path clip-rule="evenodd" fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
                                 </svg>
-                                Adicionar funcionario
+                                Adicionar produto
                             </button>
 
                         </div>
@@ -58,8 +57,9 @@ if (!isset($_SESSION['login'])) {
                                 <tr>
                                     <th scope="col" class="px-4 py-3">ID</th>
                                     <th scope="col" class="px-4 py-3">Nome</th>
-                                    <th scope="col" class="px-4 py-3">Aniversário</th>
-                                    <th scope="col" class="px-4 py-3">Salário</th>
+                                    <th scope="col" class="px-4 py-3">Preço</th>
+                                    <th scope="col" class="px-4 py-3">Descricao</th>
+                                    <th scope="col" class="px-4 py-3">Estoque</th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
@@ -67,25 +67,26 @@ if (!isset($_SESSION['login'])) {
                             </thead>
                             <tbody>
                                 <?php
-                                foreach ($lista_funcionario as $funcionario) {
+                                foreach ($lista_produto as $produto) {
                                 ?>
                                     <tr class="border-b dark:border-gray-700">
-                                        <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"><?php echo $funcionario->getId(); ?></th>
-                                        <td class="px-4 py-3"><?php echo $funcionario->getNome(); ?></td>
-                                        <td class="px-4 py-3"><?php echo $funcionario->getAniversario(); ?></td>
-                                        <td class="px-4 py-3"><?php echo "R$" . number_format($funcionario->getSalario(), 2, ",", "."); ?></td>
+                                        <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"><?php echo $produto->getId(); ?></th>
+                                        <td class="px-4 py-3"><?php echo $produto->getNome(); ?></td>
+                                        <td class="px-4 py-3"><?php echo "R$" . number_format($produto->getPreco(), 2, ",", "."); ?></td>
+                                        <td class="px-4 py-3"><?php echo $produto->getDescricao(); ?></td>
+                                        <td class="px-4 py-3"><?php echo $produto->getEstoque(); ?></td>
                                         <td class="px-6 py-4 gap-8">
-                                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" onclick="JavaScript:location.href='detalhes.php?id=' + <?php echo $funcionario->getId(); ?>">
+                                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline" onclick="JavaScript:location.href='detalhes.php?id=' + <?php echo $produto->getId(); ?>">
                                                 Detalhes
                                             </a>
                                         </td>
                                         <td class="px-6 py-4 gap-8">
-                                            <a href="#" class="font-medium text-orange-600 dark:text-blue-500 hover:underline" onclick="JavaScript:location.href='editar.php?id=' + <?php echo $funcionario->getId(); ?>">
+                                            <a href="#" class="font-medium text-orange-600 dark:text-blue-500 hover:underline" onclick="JavaScript:location.href='editar.php?id=' + <?php echo $produto->getId(); ?>">
                                                 Editar
                                             </a>
                                         </td>
                                         <td class="px-6 py-4 gap-8">
-                                            <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline" onclick="JavaScript: remover(<?php echo $funcionario->getId(); ?>);">
+                                            <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline" onclick="JavaScript: remover(<?php echo $produto->getId(); ?>);">
                                                 Remover
                                             </a>
                                         </td>
@@ -103,7 +104,7 @@ if (!isset($_SESSION['login'])) {
     <?php include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/footer.php" ?>
     <script>
         function remover(id) {
-            if (confirm('Excluir o Operador ' + id + '?')) {
+            if (confirm('Excluir o pruduto ' + id + '?')) {
                 location.href = 'deletar.php?id=' + id;
             }
         }

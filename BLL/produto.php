@@ -1,5 +1,4 @@
 <?php
-
 namespace BLL;
 
 include_once '/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/DAL/produto.php';
@@ -22,8 +21,10 @@ class bllProduto
         return $dal->SelectID($id);
     }
 
-    public function SelectNome(string $nome){
+    public function SelectNome(string $nome)
+    {
         $dal = new \DAL\dalProduto(); 
+
         return $dal->SelectNome($nome);
     }
 
