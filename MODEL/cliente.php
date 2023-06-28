@@ -25,6 +25,10 @@ class Cliente {
         return $this->aniversario;
     }
 
+    public function getAniversarioF() {
+        return date("d/m/Y", strtotime($this->aniversario));
+    }
+
     public function getCpf() {
         return $this->cpf;
     }

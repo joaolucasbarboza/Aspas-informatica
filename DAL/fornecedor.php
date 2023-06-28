@@ -53,6 +53,35 @@ class dalFornecedor
 
     }
 
+    public function SelectNome(string $razao_social){
+
+        $sql = "select * from fornecedor WHERE razao_social like  '%" . $razao_social .  "%' order by razao_social;";
+     //   $sql = "select * from operador WHERE nome like  '%?%' order by nome;";
+
+        $pdo = Conexao::conectar(); 
+        $query = $pdo->prepare($sql);
+        $result = $pdo->query($sql); 
+                  
+        // echo count ($result);
+        $lista_fornecedor = null; 
+        foreach($result as $linha){
+                      
+          $fornecedor = new \MODEL\Fornecedor();
+  
+          $fornecedor->setId($linha['id']);
+          $fornecedor->setRazaoSocial($linha['razao_social']);
+
+          $fornecedor->setCnpj($linha['cnpj']); 
+     
+          $fornecedor->setEmail($linha['email']); 
+  
+          $lista_fornecedor[] = $fornecedor; 
+
+        }
+        return  $lista_fornecedor;
+
+      }
+
     public function Insert(\MODEL\Fornecedor $fornecedor)
     {
         $con = Conexao::conectar();

@@ -1,44 +1,40 @@
-
-
-<body class="bg-black">
+<body class="dark:bg-gray-900">
     <?php 
         include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/menu.php";
     ?>
     <div class="flex flex-col justify-center items-center pt-16 ">
         
         <div class="flex flex-col justify-center dark:bg-gray-800 items-center border-2 border-gray-900 border- rounded-[10px] p-4 bg-white ">
-            <div class="bg-gray-800">
-                <h1 class="text-[30px] text-white">Inserir funcionario</h1>
-            </div>
-            <form 
+                <form 
                 action="postInserir.php" 
                 method="post" 
                 class="flex flex-col gap-4 bg-gray-800">
+                <h1 class="text-[30px] text-white">Inserir funcionario</h1>
                 <div class="flex flex-col">
-                    <label class="text-white">Nome</label>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nome</label>
                     <input 
                         id="name" 
                         name="name" 
                         type="text" 
-                        class="w-[300px] h-[40px] px-[9px] py-2 bg-white rounded-lg border border-slate-200">
+                        class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-pointer dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
 
                 <div class="flex flex-col">
-                    <label class="text-white">Data de nascimento</label>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Data de nascimento</label>
                     <input 
                         id="date" 
                         name="birthday" 
                         type="date" 
-                        class="w-[300px] h-[40px] px-[9px] py-2 bg-white rounded-lg border border-slate-200">
+                        class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-pointer dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
 
                 <div class="flex flex-col">
-                    <label class="text-white">Salario</label>
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Salario</label>
                     <input 
                         id="number" 
                         name="wage" 
                         type="number" 
-                        class="w-[300px] h-[40px] px-[9px] py-2 bg-white rounded-lg border border-slate-200">
+                        class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-pointer dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 </div>
 
                 <div class="flex justify-center gap-4">
@@ -71,5 +67,5 @@
         </div>
 
     </div>
- 
+    <?php include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/footer.php" ?>
 </body>

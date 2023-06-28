@@ -2,6 +2,8 @@
 
 namespace BLL;
 
+use DAL\dalFornecedor;
+
 include_once '/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/DAL/fornecedor.php';
 
 class bllFornecedor
@@ -20,6 +22,11 @@ class bllFornecedor
         $dal = new \DAL\dalFornecedor();
 
         return $dal->SelectID($id);
+    }
+
+    public function SelectNome(string $razao_social){
+        $dal = new dalFornecedor(); 
+        return $dal->SelectNome($razao_social);
     }
 
     public function Insert(\MODEL\Fornecedor $fornecedor)

@@ -2,6 +2,8 @@
 
 namespace BLL;
 
+use DAL\dalFuncionario;
+
 include_once '/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/DAL/funcionario.php';
 
 class bllFuncionario
@@ -21,6 +23,12 @@ class bllFuncionario
 
         return $dal->SelectID($id);
     }
+
+    public function SelectNome(string $nome){
+        $dal = new dalFuncionario(); 
+        return $dal->SelectNome($nome);
+    }
+
 
     public function Insert(\MODEL\Funcionario $funcionario)
     {

@@ -2,6 +2,8 @@
 
 namespace BLL;
 
+use DAL\dalCliente;
+
 include_once '/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/DAL/cliente.php';
 
 class bllCliente
@@ -20,6 +22,11 @@ class bllCliente
         $dal = new \DAL\dalCliente();
 
         return $dal->SelectID($id);
+    }
+
+    public function SelectNome(string $nome){
+        $dal = new dalCliente(); 
+        return $dal->SelectNome($nome);
     }
 
     public function Insert(\MODEL\Cliente $cliente)

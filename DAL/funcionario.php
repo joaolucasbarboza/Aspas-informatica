@@ -53,6 +53,35 @@ class dalFuncionario
 
     }
 
+    public function SelectNome(string $nome){
+
+        $sql = "select * from funcionario WHERE nome like  '%" . $nome .  "%' order by nome;";
+     //   $sql = "select * from operador WHERE nome like  '%?%' order by nome;";
+
+        $pdo = Conexao::conectar(); 
+        $query = $pdo->prepare($sql);
+        $result = $pdo->query($sql); 
+                  
+        // echo count ($result);
+        $lista_funcionario = null; 
+        foreach($result as $linha){
+                      
+          $funcionario = new \MODEL\Funcionario();
+  
+          $funcionario->setId($linha['id']);
+          $funcionario->setNome($linha['nome']);
+
+          $funcionario->setAniversario($linha['aniversario']); 
+     
+          $funcionario->setSalario($linha['salario']); 
+  
+          $lista_funcionario[] = $funcionario; 
+
+        }
+        return  $lista_funcionario;
+
+      }
+
     public function Insert(\MODEL\Funcionario $funcionario)
     {
         $con = Conexao::conectar();

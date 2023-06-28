@@ -9,7 +9,7 @@ $fornecedor = $bll->SelectID($id);
 
 ?>
 
-<body class="bg-black">
+<body class="dark:bg-gray-900">
 <?php 
     include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/menu.php";
 ?>
@@ -25,39 +25,39 @@ $fornecedor = $bll->SelectID($id);
         class="flex flex-col gap-4">
 
         <div class="flex felx-col">
-            <label class="text-white" for="id">ID: <?php echo $fornecedor->getId(); ?></label>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="id">ID: <?php echo $fornecedor->getId(); ?></label>
             <input type="hidden" name="id" value=<?php echo $id?> >
         </div>
 
         <div class="flex flex-col">
-            <label class="text-white">Razão Social</label>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Razão Social</label>
             <input 
                 id="razao_social" 
                 name="razao_social" 
                 type="text" 
-                class="w-[300px] h-[40px] px-[9px] py-2 bg-white rounded-lg border border-slate-200" 
+                class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-pointer dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                 value="<?php echo $fornecedor->getRazaoSocial(); ?>"
             >
         </div>
 
         <div class="flex flex-col">
-            <label class="text-white">CNPJ</label>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CNPJ</label>
             <input 
                 id="cnpj" 
                 name="cnpj" 
                 type="text" 
-                class="w-[300px] h-[40px] px-[9px] py-2 bg-white rounded-lg border border-slate-200"
+                class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-pointer dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 value="<?php echo $fornecedor->getCnpj(); ?>"
             >
         </div>
 
         <div class="flex flex-col">
-            <label class="text-white">Email</label>
+            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
             <input 
                 id="email" 
                 name="email" 
                 type="text" 
-                class="w-[300px] h-[40px] px-[9px] py-2 bg-white rounded-lg border border-slate-200"
+                class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-pointer dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 value="<?php echo $fornecedor->getEmail(); ?>"
             >
         </div>
@@ -92,4 +92,5 @@ $fornecedor = $bll->SelectID($id);
 </div>
 
 </div>
+<?php include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/footer.php" ?>
 </body>

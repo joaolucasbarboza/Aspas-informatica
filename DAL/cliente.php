@@ -56,6 +56,34 @@ class dalCliente
 
     }
 
+    public function SelectNome(string $nome){
+
+        $sql = "select * from cliente WHERE nome like  '%" . $nome .  "%' order by nome;";
+     //   $sql = "select * from operador WHERE nome like  '%?%' order by nome;";
+
+        $pdo = Conexao::conectar(); 
+        $query = $pdo->prepare($sql);
+        $result = $pdo->query($sql); 
+                  
+        // echo count ($result);
+        $lista_cliente = null; 
+        foreach($result as $linha){
+                      
+          $cliente = new \MODEL\Cliente();
+  
+          $cliente->setId($linha['id']);
+          $cliente->setNome($linha['nome']);
+          $cliente->setAniversario($linha['aniversario']); 
+          $cliente->setCpf($linha['cpf']); 
+          $cliente->setTelefone($linha['telefone']); 
+  
+          $lista_cliente[] = $cliente; 
+
+        }
+        return  $lista_cliente;
+
+      }
+
     public function Insert(\MODEL\Cliente $cliente)
     {
         $con = Conexao::conectar();

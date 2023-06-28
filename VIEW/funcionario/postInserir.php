@@ -8,14 +8,10 @@
     $funcionario->setAniversario($_POST['birthday']);
     $funcionario->setSalario($_POST['wage']);
     
-
     $bll = new \BLL\bllFuncionario();
     
-
     $bll->Insert($funcionario);
-    var_dump($bll);
-    var_dump($funcionario);
 
-    // header("location: lista.php")
+    header("location: lista.php")
 
 ?>

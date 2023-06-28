@@ -1,4 +1,4 @@
-<body class="bg-black">
+<body class="dark:bg-gray-900">
     <?php 
         include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/menu.php";
     ?>
@@ -77,5 +77,5 @@
             </form>
         </div>
     </div>
- 
+    <?php include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/footer.php" ?>
 </body>
