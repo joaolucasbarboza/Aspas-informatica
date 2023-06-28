@@ -3,9 +3,9 @@ namespace MODEL;
 class Produto {
     private ?int $id;
     private ?string $nome;
-    private ?string $preco;
+    private ?float $preco;
     private ?string $descricao;
-    private ?int $vendas;
+    private ?int $estoque;
 
     public function __construct() {
 
@@ -23,7 +23,7 @@ class Produto {
         return $this->nome;
     }
 
-    public function setNome($nome) {
+    public function setNome(string $nome) {
         $this->nome = $nome;
     }
 
@@ -31,7 +31,7 @@ class Produto {
         return $this->preco;
     }
 
-    public function setPreco($preco) {
+    public function setPreco(float $preco) {
         $this->preco = $preco;
     }
 
@@ -39,16 +39,16 @@ class Produto {
         return $this->descricao;
     }
 
-    public function setDescricao($descricao) {
+    public function setDescricao(string $descricao) {
         $this->descricao = $descricao;
     }
 
-    public function getVendas() {
-        return $this->vendas;
+    public function getEstoque() {
+        return $this->estoque;
     }
 
-    public function setVendas(int $vendas) {
-        return $this->vendas = $vendas;
+    public function setEstoque(int $estoque) {
+        return $this->estoque = $estoque;
     }
 }
 

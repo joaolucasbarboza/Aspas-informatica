@@ -1,6 +1,11 @@
 <?php
 include_once '/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/BLL/fornecedor.php';
 
+session_start();
+if (!isset($_SESSION['login'])) {
+    Header("location: index.php");
+}
+
 if (isset($_GET['busca']))
     $busca = $_GET['busca'];
 else $busca = null;
@@ -12,6 +17,7 @@ $bll = new \bll\bllFornecedor();
 if ($busca == null)
     $lista_fornecedor = $bll->Select();
 else $lista_fornecedor = $bll->SelectNome($busca);
+
 
 ?>
 <title>Lista de fornecedor</title>

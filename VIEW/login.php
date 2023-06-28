@@ -3,7 +3,6 @@
     include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/BLL/usuario.php";
     include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/MODEL/usuario.php";
 
-
     $email= trim($_POST['email']);
     $senha = trim($_POST['password']);
 

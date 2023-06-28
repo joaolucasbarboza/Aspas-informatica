@@ -13,6 +13,11 @@ if ($busca == null)
     $lista_funcionario = $bll->Select();
 else $lista_funcionario = $bll->SelectNome($busca);
 
+session_start();
+if (!isset($_SESSION['login'])) {
+    Header("location: index.php");
+}
+
 ?>
 <title>Lista de funcionario</title>
 
