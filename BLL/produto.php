@@ -44,11 +44,23 @@ class bllProduto
         header("location: lista.php"); 
     }
 
-    public function Update(\MODEL\Produto $produto)
+    public function Update(\MODEL\Produto $produto, \MODEL\Categoria $oldCategory)
     {
+        $bllCategoria = new \BLL\bllCategoria();
+        $novoValor = $oldCategory->getQuantidade() - 1;
+        $oldCategory->setQuantidade($novoValor);
+        $bllCategoria->Update($oldCategory); 
+        
         $dal = new \DAL\dalProduto();
+        $newProduto = $dal->Update($produto);
+        $bllCategoria2 = new \BLL\bllCategoria();
 
-        $dal->Update($produto);
+        if ($newProduto->getCategoria()->getId() != $oldCategory->getId()) {
+            $novoValor = $newProduto->getCategoria()->getQuantidade() + 1;
+            $newProduto->getCategoria()->setQuantidade($novoValor);
+        }
+
+        $bllCategoria2->Update($newProduto->getCategoria());
     }
 
     public function Delete(int $id)

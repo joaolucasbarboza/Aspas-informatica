@@ -5,8 +5,6 @@ if (isset($_GET['busca']))
     $busca = $_GET['busca'];
 else $busca = null;
 
-echo "Busca: " . $busca . "</br>";
-
 $bll = new \bll\bllCliente();
 
 if ($busca == null)

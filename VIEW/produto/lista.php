@@ -122,7 +122,7 @@ if (!isset($_SESSION['login'])) {
     <?php include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/footer.php" ?>
     <script>
         function remover(id) {
-            if (confirm('Excluir o pruduto ' + id + '?')) {
+            if (confirm('Excluir o produto ' + id + '?')) {
                 location.href = 'deletar.php?id=' + id;
             }
         }

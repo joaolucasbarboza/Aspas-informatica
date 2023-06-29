@@ -5,8 +5,6 @@ if (isset($_GET['busca']))
     $busca = $_GET['busca'];
 else $busca = null;
 
-echo "Busca: " . $busca . "</br>";
-
 $bll = new \bll\bllFuncionario();
 
 if ($busca == null)
@@ -104,7 +102,7 @@ if (!isset($_SESSION['login'])) {
     <?php include_once "/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/VIEW/footer.php" ?>
     <script>
         function remover(id) {
-            if (confirm('Excluir o Operador ' + id + '?')) {
+            if (confirm('Excluir o Funcionario ' + id + '?')) {
                 location.href = 'deletar.php?id=' + id;
             }
         }

@@ -105,23 +105,28 @@ class dalProduto
 
     public function Update(\MODEL\Produto $produto)
     {
-        $sql = "UPDATE produto SET nome=?, preco=?, descricao=?, estoque=?, quantidade=?, categoria=? WHERE id=?";
+        $sql = "UPDATE produto SET nome=?, preco=?, descricao=?, estoque=?, categoria=? WHERE id=?";
         
         $pdo = Conexao::conectar();
         $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        
         $query = $pdo->prepare($sql);
         $result = $query->execute(array(
+            
             $produto->getNome(), 
             $produto->getPreco(), 
             $produto->getDescricao(), 
             $produto->getEstoque(),
-            $produto->getCategoria()));
+            $produto->getCategoria()->getId(),
+            $produto->getId(),
+            
+        ));
+
+        
 
 
         $con = Conexao::desconectar();
         
-        return $result;
+        return $produto;
     }
 
     public function Delete(int $id)

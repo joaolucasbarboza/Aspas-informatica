@@ -13,13 +13,14 @@
     
     $objUsuario = $bll->SelectUser($email);
 
-    if ($objUsuario != null) {
+
+    if ($objUsuario != NULL) {
         if (md5($senha) == $objUsuario->getSenha()) {
             session_start();
             $_SESSION['login'] = $objUsuario->getEmail();
-            Header("location: menu.php");
+            Header("location: funcionario/lista.php");
         }
         else Header("location: index.php");
     }
-    else echo "usuario não encontrado";
+    else Header("location: index.php");
 ?>
