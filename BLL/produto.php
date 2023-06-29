@@ -13,8 +13,6 @@ class bllProduto
     {
 
         $dal = new \DAL\dalProduto();
-
-
         return $dal->Select();
     }
 
@@ -33,16 +31,15 @@ class bllProduto
     }
 
     public function Insert (\MODEL\Produto $produto){
-        $bllCategoria = new \bll\bllCategoria(); 
-        $categoria = new \MODEL\Categoria(); 
-        $categoria = $bllCategoria->SelectID($categoria->getId()); 
-
-        $novoValor = $categoria->getQuantidade() + 1; 
-        $categoria->setQuantidade($novoValor);
-        $bllCategoria->Update($categoria); 
-
+        $bllCategoria = new \bll\bllCategoria();  
+        
+        $novoValor = $produto->getCategoria()->getQuantidade() + 1;
+        $produto->getCategoria()->setQuantidade($novoValor);
+        $bllCategoria->Update($produto->getCategoria()); 
+        
         $dal = new \DAL\dalProduto(); 
         $dal->Insert($produto);  
+        var_dump('teste');
 
         header("location: lista.php"); 
     }
@@ -56,6 +53,17 @@ class bllProduto
 
     public function Delete(int $id)
     {
+        $produto = $this->SelectId($id);
+        $bllCategoria = new \bll\bllCategoria();  
+       
+        var_dump('teste');
+        $novoValor = $produto->getCategoria()->getQuantidade() - 1;
+        if ($novoValor < 0) {
+            $novoValor = 0;
+        }
+        $produto->getCategoria()->setQuantidade($novoValor);
+        $bllCategoria->Update($produto->getCategoria()); 
+        
         $dal = new \DAL\dalProduto();
 
         $dal->Delete($id);

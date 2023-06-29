@@ -6,7 +6,7 @@ class Produto {
     private ?float $preco;
     private ?string $descricao;
     private ?int $estoque;
-    private ?string $categoria;
+    private Categoria $categoria;
 
     public function __construct() {
 
@@ -33,7 +33,7 @@ class Produto {
     }
 
     public function setPreco(float $preco) {
-        $this->preco = $preco;
+        return $this->preco = $preco;
     }
 
     public function getDescricao() {
@@ -41,8 +41,10 @@ class Produto {
     }
 
     public function setDescricao(string $descricao) {
-        $this->descricao = $descricao;
+        return $this->descricao = $descricao;
     }
+
+
 
     public function getEstoque() {
         return $this->estoque;
@@ -56,7 +58,7 @@ class Produto {
         return $this->categoria;
     }
 
-    public function setCategoria(string $categoria) {
+    public function setCategoria(Categoria $categoria) {
         return $this->categoria = $categoria;
     }
 }

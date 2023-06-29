@@ -32,16 +32,17 @@
                 <div class="flex flex-col">
                     <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Categoria</label>
                     <select id="categoria" name="slcCategoria">
-                        <option value="" disabled selected>Escolha uma categoria</option>
+                        <option value="" disabled>Escolha uma categoria</option>
                         <?php
-                        $bll = new \bll\bllCategoria();
-                        $lista_categoria = $bll->Select();
+                            $bll = new \bll\bllCategoria();
+                            $lista_categoria = $bll->Select();
                         ?>
                         <?php
                             foreach ($lista_categoria as $categoria) {
                         ?>
-                            <option value="<?php echo $categoria->getId(); ?>"><?php echo $categoria->getNome(); ?></option>
+                            <option value="<?php echo $categoria->getId(); ?>"><?php echo $categoria->getNome();?></option>
                         <?php
+
                         }
                         ?>
                     </select>

@@ -46,11 +46,11 @@
 
         public function Update(\MODEL\Categoria $categoria){
           $sql = "UPDATE categoria SET nome=?, quantidade=? WHERE id=?";
-
+          
           $pdo = Conexao::conectar(); 
           $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); 
           $query = $pdo->prepare($sql);
-          $result = $query->execute(array($categoria->getNome()));
+          $result = $query->execute(array($categoria->getNome(), $categoria->getQuantidade(), $categoria->getId()));
           $con = Conexao::desconectar();
           return  $result; 
       }  

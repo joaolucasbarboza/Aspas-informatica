@@ -4,6 +4,7 @@ namespace DAL;
 
 include_once '/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/DAL/conexao.php';
 include_once '/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/MODEL/produto.php';
+include_once '/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/DAL/categoria.php';
 
 class dalProduto
 {
@@ -20,7 +21,6 @@ class dalProduto
         $con = Conexao::desconectar();
         
         
-
         foreach ($result as $linha) {
             $produto = new \MODEL\Produto();
 
@@ -29,6 +29,8 @@ class dalProduto
             $produto->setPreco($linha['preco']);
             $produto->setDescricao($linha['descricao']);
             $produto->setEstoque($linha['estoque']);
+            $categoriaDAL = new \DAL\dalCategoria();
+            $produto->setCategoria($categoriaDAL->SelectID($linha['categoria']));
             $lista_produto[] = $produto;
         }
 
@@ -50,7 +52,8 @@ class dalProduto
         $produto->setPreco($linha['preco']);
         $produto->setDescricao($linha['descricao']);
         $produto->setEstoque($linha['estoque']);
-        $produto->setCategoria($linha['categoria']);
+        $categoriaDAL = new \DAL\dalCategoria();
+        $produto->setCategoria($categoriaDAL->SelectID($linha['categoria']));
 
         return $produto;
 
@@ -75,7 +78,8 @@ class dalProduto
           $produto->setPreco($linha['preco']);
           $produto->setDescricao($linha['descricao']);
           $produto->setEstoque($linha['estoque']);
-          $produto->setCategoria($linha['categoria']);
+          $categoriaDAL = new \DAL\dalCategoria();
+          $produto->setCategoria($categoriaDAL->SelectID($linha['categoria']));
   
           $lista_produto[] = $produto; 
 
@@ -91,8 +95,8 @@ class dalProduto
             '{$produto->getNome()}', 
             {$produto->getPreco()}, 
             '{$produto->getDescricao()}', 
-            {$produto->getEstoque()}),
-            '{$produto->getCategoria()}';";
+            {$produto->getEstoque()},
+            {$produto->getCategoria()->getId()});";
 
         $result = $con->query($sql);
         $con = Conexao::desconectar();

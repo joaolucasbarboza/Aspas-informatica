@@ -1,17 +1,19 @@
 <?php
 include_once '/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/BLL/produto.php';
+include_once '/Applications/XAMPP/xamppfiles/htdocs/projeto_aspas_informatica/Aspas-informatica/BLL/categoria.php';
 
 if (isset($_GET['busca']))
     $busca = $_GET['busca'];
 else $busca = null;
 
-echo "Busca: " . $busca . "</br>";
+$bllProduto = new \bll\bllProduto();
+$bllCategoria = new \bll\bllCategoria();
 
-$bll = new \bll\bllProduto();
+$lista_categoria = $bllCategoria->Select();
 
 if ($busca == null)
-    $lista_produto = $bll->Select();
-else $lista_produto = $bll->SelectNome($busca);
+    $lista_produto = $bllProduto->Select();
+else $lista_produto = $bllProduto->SelectNome($busca);
 
 session_start();
 if (!isset($_SESSION['login'])) {
@@ -51,6 +53,18 @@ if (!isset($_SESSION['login'])) {
 
                     </div>
                 </div>
+                <div class="flex gap-4 px-4">
+                <?php
+                    foreach ($lista_categoria as $categoria) {
+                    ?>
+                    <div class="flex justify-center items-center rounded-lg p-2 mb-4 text-white bg-blue-700">
+                        <span class="material-symbols-outlined">category</span>
+                        <p class="px-4"><?php echo $categoria->getNome()?>: <?php echo $categoria->getQuantidade() ?></p>
+                    </div>
+                    <?php 
+                        }
+                    ?>
+                </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -73,7 +87,7 @@ if (!isset($_SESSION['login'])) {
                                 <tr class="border-b dark:border-gray-700">
                                     <th scope="row" class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"><?php echo $produto->getId(); ?></th>
                                     <td class="px-4 py-3"><?php echo $produto->getNome(); ?></td>
-                                    <td class="px-4 py-3"><?php echo $produto->getCategoria(); ?></td>
+                                    <td class="px-4 py-3"><?php echo $produto->getCategoria()->getNome(); ?></td>
                                     <td class="px-4 py-3 ">
                                         <p class="w-full w-[200px] truncate"><?php echo $produto->getDescricao(); ?></p>
                                     </td>
