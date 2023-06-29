@@ -20,7 +20,6 @@ class dalUsuario
         
         $usuario = new \MODEL\Usuario();
 
-
         if ($linha != null) {
             $usuario->setId($linha['id']);
             $usuario->setUsuario($linha['usuario']);

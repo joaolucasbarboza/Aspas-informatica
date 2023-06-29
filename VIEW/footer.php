@@ -1,4 +1,4 @@
-<footer class="mt-8 p-4 bottom-0 left-0 w-full bg-white dark:bg-gray-800">
+<footer class="fixed mt-8 p-4 bottom-0 left-0 w-full bg-white dark:bg-gray-800">
   <div class="mx-auto max-w-screen-xl text-center">
       <a href="#" class="flex justify-center items-center text-gray-900 dark:text-white">
         <span class="text-4xl material-symbols-outlined text-yellow-300">bolt</span>

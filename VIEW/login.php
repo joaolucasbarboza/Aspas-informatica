@@ -13,7 +13,6 @@
     
     $objUsuario = $bll->SelectUser($email);
 
-
     if ($objUsuario != NULL) {
         if (md5($senha) == $objUsuario->getSenha()) {
             session_start();
