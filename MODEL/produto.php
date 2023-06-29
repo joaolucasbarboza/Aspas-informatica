@@ -6,6 +6,7 @@ class Produto {
     private ?float $preco;
     private ?string $descricao;
     private ?int $estoque;
+    private ?string $categoria;
 
     public function __construct() {
 
@@ -49,6 +50,14 @@ class Produto {
 
     public function setEstoque(int $estoque) {
         return $this->estoque = $estoque;
+    }
+
+    public function getCategoria() {
+        return $this->categoria;
+    }
+
+    public function setCategoria(string $categoria) {
+        return $this->categoria = $categoria;
     }
 }
 

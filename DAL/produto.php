@@ -50,6 +50,7 @@ class dalProduto
         $produto->setPreco($linha['preco']);
         $produto->setDescricao($linha['descricao']);
         $produto->setEstoque($linha['estoque']);
+        $produto->setCategoria($linha['categoria']);
 
         return $produto;
 
@@ -74,6 +75,7 @@ class dalProduto
           $produto->setPreco($linha['preco']);
           $produto->setDescricao($linha['descricao']);
           $produto->setEstoque($linha['estoque']);
+          $produto->setCategoria($linha['categoria']);
   
           $lista_produto[] = $produto; 
 
@@ -85,11 +87,12 @@ class dalProduto
     public function Insert(\MODEL\Produto $produto)
     {
         $con = Conexao::conectar();
-        $sql = "INSERT INTO produto (nome, preco, descricao, estoque) VALUES (
+        $sql = "INSERT INTO produto (nome, preco, descricao, estoque, categoria) VALUES (
             '{$produto->getNome()}', 
             {$produto->getPreco()}, 
             '{$produto->getDescricao()}', 
-            {$produto->getEstoque()});";
+            {$produto->getEstoque()}),
+            '{$produto->getCategoria()}';";
 
         $result = $con->query($sql);
         $con = Conexao::desconectar();
@@ -98,7 +101,7 @@ class dalProduto
 
     public function Update(\MODEL\Produto $produto)
     {
-        $sql = "UPDATE produto SET nome=?, preco=?, descricao=?, estoque=? WHERE id=?";
+        $sql = "UPDATE produto SET nome=?, preco=?, descricao=?, estoque=?, quantidade=?, categoria=? WHERE id=?";
         
         $pdo = Conexao::conectar();
         $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
@@ -108,7 +111,9 @@ class dalProduto
             $produto->getNome(), 
             $produto->getPreco(), 
             $produto->getDescricao(), 
-            $produto->getEstoque()));
+            $produto->getEstoque(),
+            $produto->getCategoria()));
+
 
         $con = Conexao::desconectar();
         
